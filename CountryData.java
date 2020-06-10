@@ -23,13 +23,13 @@ public class CountryData {
 	//Sort and list country infected and death statistics
 	
 	public void compare() {
+		StringBuilder str = new StringBuilder();
 		countryStats.stream().sorted().forEach(country ->{
-			StringBuilder str 
-            = new StringBuilder();
 			str.append(country.getCountry());
 			str.append(" / infected:" + df.format((double) country.getInfected() * 100 / this.worldInfected) + "%");
 			str.append(" / deceased:" + df.format((double) country.getDeceased() * 100 / this.worldDeceased) + "%");
 			System.out.println(str.toString());
+			str.setLength(0);
 		});
 	}
 }
